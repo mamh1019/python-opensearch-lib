@@ -183,7 +183,7 @@ class ElasticSearch:
         if len(rows) <= 0:
             return res
 
-        # OpenSearch EBS는 3000 IOPS (초당 입출력 연산) 이므로 짤라 올려야 함
+        # OpenSearch bulk indexing 성능을 위해 문서를 chunk 단위로 나눠 전송
         docs_arr = []
         docs = []
         counter = 0
